@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".loginPage">
+
+    <TextView
+        android:id="@+id/WelcomeText"
+        android:layout_width="171dp"
+        android:layout_height="61dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="164dp"
+        android:fontFamily="@font/kreon"
+        android:textColor="#000"
+        android:textSize="48dp"
+        android:text="welcome" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/WelcomeText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/todoimage" />
+
+    <EditText
+        android:id="@+id/emailEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="94dp"
+        android:layout_marginRight="84dp"
+        android:fontFamily="@font/kotta_one"
+        android:textSize="24dp"
+        android:hint="email" />
+    <EditText
+        android:id="@+id/passwordEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailEditTxt"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginRight="84dp"
+        android:fontFamily="@font/kotta_one"
+        android:textSize="24dp"
+        android:hint="password"
+        />
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordEditTxt"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="235dp"
+        android:background="@drawable/button_rounded_corner"
+        android:text="login"
+        android:fontFamily="@font/kotta_one"
+        android:textSize="20sp"
+        />
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Progress_bar"
+        android:visibility="gone"
+        android:layout_below="@id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        />
+
+    <TextView
+        android:id="@+id/sign_up_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="sans-serif"
+        android:text="don't have account? sign up" />
+
+
+
+</RelativeLayout>

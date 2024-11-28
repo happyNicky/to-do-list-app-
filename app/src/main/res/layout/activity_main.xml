@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_weight="1"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/userNameBurger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:layout_marginStart="27sp"
+        android:layout_marginEnd="27sp"
+        >
+
+        <ImageButton
+            android:id="@+id/burgerMenu"
+            android:layout_centerVertical="true"
+            android:layout_width="29sp"
+            android:layout_height="25sp"
+            android:background="@color/white"
+            android:src="@mipmap/burger_menu_icon" />
+
+        <RelativeLayout
+            android:id="@+id/userName"
+            android:layout_width="153sp"
+            android:layout_height="40sp"
+           android:background="@drawable/user_rounded_corner"
+            android:paddingStart="7sp"
+            android:paddingEnd="7sp"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:id="@+id/userNameGriting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/itim"
+                android:text="@string/hi_user_name"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+
+                android:textColor="@color/white"
+                />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:id="@+id/userImage"
+                app:shapeAppearanceOverlay="@style/roundedImageView"
+                android:layout_alignParentEnd="true"
+                android:src="@mipmap/user"
+                android:scaleType="centerCrop"
+                android:layout_centerVertical="true"
+                />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44sp"
+        android:id="@+id/textAndLine"
+        >
+
+        <TextView
+            android:id="@+id/youShouldTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/itim"
+            android:text="@string/the_list_of_things_you_should_do_this_week"
+            android:textSize="16sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="6sp"
+            android:layout_below="@+id/youShouldTxt"
+            android:background="@color/main_color"
+            android:layout_marginStart="27sp"
+            android:layout_marginEnd="27sp"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="49sp"
+        android:layout_marginTop="12sp"
+        android:layout_marginStart="27sp"
+        android:layout_marginEnd="27sp"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+
+    >
+
+        <TextView
+            android:id="@+id/monday"
+            android:layout_width="50sp"
+            android:layout_height="19sp"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/itim"
+            android:layout_marginStart="2sp"
+            android:layout_marginEnd="2sp"
+            android:textColor="@color/daysColor"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:text="@string/monday" />
+
+        <TextView
+            android:id="@+id/tuesday"
+            android:layout_width="50sp"
+            android:layout_height="19sp"
+            android:fontFamily="@font/itim"
+            android:textAlignment="center"
+            android:textColor="@color/daysColor"
+            android:textSize="16sp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/monday"
+            android:text="@string/tuesday"
+            android:layout_marginStart="2sp"
+            android:layout_marginEnd="2sp"
+            />
+
+        <TextView
+            android:id="@+id/wednesday"
+            android:layout_width="50sp"
+            android:layout_height="19sp"
+            android:fontFamily="@font/itim"
+            android:layout_marginStart="2sp"
+            android:layout_marginEnd="2sp"
+            android:textColor="@color/daysColor"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tuesday"
+            android:text="@string/wednesday" />
+
+        <TextView
+            android:id="@+id/thursday"
+            android:layout_width="50sp"
+            android:layout_height="19sp"
+            android:fontFamily="@font/itim"
+            android:textColor="@color/daysColor"
+            android:textSize="16sp"
+            android:layout_marginStart="2sp"
+            android:layout_marginEnd="2sp"
+            android:textAlignment="center"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/wednesday"
+            android:text="@string/thursday" />
+
+        <TextView
+            android:id="@+id/friday"
+            android:layout_width="50sp"
+            android:layout_height="19sp"
+            android:fontFamily="@font/itim"
+            android:textColor="@color/daysColor"
+            android:textSize="16sp"
+            android:layout_marginStart="2sp"
+            android:layout_marginEnd="2sp"
+            android:textAlignment="center"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/thursday"
+            android:text="@string/friday" />
+
+        <TextView
+            android:id="@+id/saterday"
+            android:layout_width="50sp"
+            android:layout_height="19sp"
+            android:fontFamily="@font/itim"
+            android:textColor="@color/daysColor"
+            android:textSize="16sp"
+            android:layout_marginStart="2sp"
+            android:layout_marginEnd="2sp"
+            android:textAlignment="center"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/friday"
+            android:text="@string/Saturday" />
+
+        <TextView
+            android:id="@+id/sunday"
+            android:layout_width="50sp"
+            android:layout_height="19sp"
+            android:fontFamily="@font/itim"
+            android:textColor="@color/daysColor"
+            android:textSize="16sp"
+            android:layout_marginStart="2sp"
+            android:layout_marginEnd="2sp"
+            android:textAlignment="center"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/saterday"
+            android:text="@string/sunday" />
+
+    </RelativeLayout>
+
+
+        <EditText
+            android:id="@+id/search_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="48sp"
+            android:layout_marginStart="27sp"
+            android:layout_marginEnd="27sp"
+            android:paddingStart="10dp"
+            android:layout_marginTop="12sp"
+            android:drawableEnd="@mipmap/search_icon"
+            android:paddingEnd="10dp"
+            android:hint="search"
+            android:background="@drawable/card_rounded_corner"
+            />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_frame_layout"
+        android:layout_marginBottom="10sp"
+        android:layout_marginEnd="27sp"
+        android:layout_marginStart="27sp"
+        android:layout_weight=".9"
+        android:layout_marginTop="12sp"
+        />
+
+    
+   <ImageButton
+       android:layout_width="50sp"
+       android:layout_height="49sp"
+       android:layout_gravity="end"
+       android:layout_marginEnd="27sp"
+       android:layout_marginBottom="20sp"
+       android:background="@drawable/floating_button_background"
+       android:src="@mipmap/plus_icon"/>
+
+
+</LinearLayout>
