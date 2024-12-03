@@ -53,10 +53,11 @@
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
         android:layout_below="@id/passwordEditTxt"
         android:layout_marginTop="24dp"
         android:layout_marginLeft="235dp"
+        android:textColor="@color/white"
         android:background="@drawable/button_rounded_corner"
         android:text="login"
         android:fontFamily="@font/kotta_one"
