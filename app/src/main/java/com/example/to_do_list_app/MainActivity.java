@@ -33,15 +33,15 @@ public class MainActivity extends AppCompatActivity {
    private RelativeLayout monday,tuesday,wednesday,friday,thursday,saterday,sunday;
    private View mondayView,tuesdayView,wednesdayView,thursdayView,fridayView,saterdayView,sundayView;
    private mondayFragment monFrag;
-
-
     private ImageButton goToNoteBtn;
-
    private static String day="monday";
    private Bundle bundle;
     private dataBase db;
     private  ArrayList<String> titles;
     private EditText searchEditText;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+
 
     public static String getDay() {
         return day;
@@ -82,15 +82,19 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("day",day);
         monFrag.setArguments(bundle);
 
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        burgerMenu.setOnClickListener(v -> {
+            if (drawerLayout.isDrawerOpen(GravityCompat.START))
+                {
+            drawerLayout.closeDrawer(GravityCompat.START);
+              } else
+        { drawerLayout.openDrawer(GravityCompat.START); } });
+
         // trying code
 
 
        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,monFrag).commit();
-
-
-        burgerMenu.setOnClickListener(v -> {
-           startActivity(new Intent(getApplicationContext(),navigationdrawer.class));
-        });
 
         monday.setOnClickListener(v -> {
             day="monday";
@@ -308,6 +312,15 @@ public class MainActivity extends AppCompatActivity {
        monFrag.updateTitles(titles);
        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,monFrag).commit();
         }
+
+    public void onBackPressed()
+    {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START))
+        { drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else {
+            super.onBackPressed();
+        } }
 
 
 }

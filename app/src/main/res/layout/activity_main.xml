@@ -1,328 +1,338 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_weight="1"
-    tools:context=".MainActivity">
+<androidx.drawerlayout.widget.DrawerLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/drawer_layout"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/userNameBurger"
+<!-- Main content frame -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_height="match_parent"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
-        android:layout_marginStart="27sp"
-        android:layout_marginEnd="27sp"
-        >
-
-        <ImageButton
-            android:id="@+id/burgerMenu"
-            android:layout_centerVertical="true"
-            android:layout_width="35sp"
-            android:layout_height="35sp"
-            android:background="@color/white"
-            android:src="@mipmap/burger_menu_icon" />
+        android:orientation="vertical"
+        android:layout_weight="1"
+        tools:context=".MainActivity">
 
         <RelativeLayout
-            android:id="@+id/userName"
-            android:layout_width="153sp"
-            android:layout_height="40sp"
-           android:background="@drawable/user_rounded_corner"
-            android:paddingStart="7sp"
-            android:paddingEnd="7sp"
-            android:paddingTop="5sp"
-            android:paddingBottom="5sp"
-            android:layout_alignParentEnd="true">
-
-            <TextView
-                android:id="@+id/userNameGriting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/itim"
-                android:text="@string/hi_user_name"
-                android:layout_centerVertical="true"
-                android:textSize="16sp"
-
-                android:textColor="@color/white"
-                />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="30sp"
-                android:layout_height="30sp"
-                android:id="@+id/userImage"
-                app:shapeAppearanceOverlay="@style/roundedImageView"
-                android:layout_alignParentEnd="true"
-                android:src="@mipmap/user"
-                android:scaleType="centerCrop"
-                android:layout_centerVertical="true"
-                />
-        </RelativeLayout>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44sp"
-        android:id="@+id/textAndLine"
-        >
-
-        <TextView
-            android:id="@+id/youShouldTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:fontFamily="@font/itim"
-            android:text="@string/the_list_of_things_you_should_do_this_week"
-            android:textSize="16sp" />
-        <View
+            android:id="@+id/userNameBurger"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="6sp"
-            android:layout_below="@+id/youShouldTxt"
-            android:background="@color/main_color"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
             android:layout_marginStart="27sp"
             android:layout_marginEnd="27sp"
-            />
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="49sp"
-        android:layout_marginTop="12sp"
-        android:layout_marginStart="27sp"
-        android:layout_marginEnd="27sp"
-        android:paddingTop="10sp"
-        android:paddingBottom="10sp"
-
-    >
-  <RelativeLayout
-      android:layout_width="wrap_content"
-      android:layout_height="match_parent"
-      android:layout_centerVertical="true"
-      android:id="@+id/monday"
-      >
-      <TextView
-          android:id="@+id/mondaytext"
-          android:layout_width="50sp"
-          android:layout_height="19sp"
-          android:layout_centerVertical="true"
-          android:fontFamily="@font/itim"
-          android:layout_marginStart="2sp"
-          android:layout_marginEnd="2sp"
-          android:textColor="@color/daysColor"
-          android:textAlignment="center"
-          android:textSize="16sp"
-          android:text="@string/monday"
-          android:layout_above="@id/underLineMonday"
-          />
-      <View
-          android:id="@+id/underLineMonday"
-          android:layout_width="25sp"
-          android:layout_height="4sp"
-          android:background="@drawable/user_rounded_corner"
-          android:layout_centerHorizontal="true"
-          android:layout_alignParentBottom="true"
-          android:visibility="visible"
-          android:layout_marginTop="5dp"
-          />
-
-
-  </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/tuesday"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/monday"
             >
-            <TextView
-                android:layout_width="50sp"
-                android:layout_height="19sp"
-                android:fontFamily="@font/itim"
-                android:textAlignment="center"
-                android:textColor="@color/daysColor"
-                android:textSize="16sp"
+
+            <ImageButton
+                android:id="@+id/burgerMenu"
                 android:layout_centerVertical="true"
-                android:text="@string/tuesday"
-                android:layout_marginStart="2sp"
-                android:layout_marginEnd="2sp"
-                android:layout_above="@id/underLineTuesday"
-                />
-            <View
-                android:id="@+id/underLineTuesday"
-                android:layout_width="25sp"
-                android:layout_height="4sp"
+                android:layout_width="35sp"
+                android:layout_height="35sp"
+                android:background="@color/white"
+                android:src="@mipmap/burger_menu_icon" />
+
+            <RelativeLayout
+                android:id="@+id/userName"
+                android:layout_width="153sp"
+                android:layout_height="40sp"
                 android:background="@drawable/user_rounded_corner"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                android:visibility="gone"
-                android:layout_marginTop="5dp"
-                />
+                android:paddingStart="7sp"
+                android:paddingEnd="7sp"
+                android:paddingTop="5sp"
+                android:paddingBottom="5sp"
+                android:layout_alignParentEnd="true">
 
+                <TextView
+                    android:id="@+id/userNameGriting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/itim"
+                    android:text="@string/hi_user_name"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
 
+                    android:textColor="@color/white"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="30sp"
+                    android:layout_height="30sp"
+                    android:id="@+id/userImage"
+                    app:shapeAppearanceOverlay="@style/roundedImageView"
+                    android:layout_alignParentEnd="true"
+                    android:src="@mipmap/user"
+                    android:scaleType="centerCrop"
+                    android:layout_centerVertical="true"
+                    />
+            </RelativeLayout>
         </RelativeLayout>
-
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/wednesday"
-            android:layout_toEndOf="@id/tuesday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44sp"
+            android:id="@+id/textAndLine"
             >
+
             <TextView
-                android:id="@+id/wednesdayText"
-                android:layout_width="50sp"
-                android:layout_height="19sp"
-                android:fontFamily="@font/itim"
-                android:layout_marginStart="2sp"
-                android:layout_marginEnd="2sp"
-                android:textColor="@color/daysColor"
-                android:textSize="16sp"
-                android:textAlignment="center"
-                android:layout_centerVertical="true"
-                android:layout_above="@id/underLineWednesday"
-                android:text="@string/wednesday" />
-            <View
-                android:id="@+id/underLineWednesday"
-                android:layout_width="25sp"
-                android:layout_height="4sp"
-                android:background="@drawable/user_rounded_corner"
+                android:id="@+id/youShouldTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                android:visibility="gone"
-                android:layout_marginTop="5dp"
+                android:fontFamily="@font/itim"
+                android:text="@string/the_list_of_things_you_should_do_this_week"
+                android:textSize="16sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="6sp"
+                android:layout_below="@+id/youShouldTxt"
+                android:background="@color/main_color"
+                android:layout_marginStart="27sp"
+                android:layout_marginEnd="27sp"
                 />
 
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="49sp"
+            android:layout_marginTop="12sp"
+            android:layout_marginStart="27sp"
+            android:layout_marginEnd="27sp"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"
 
-       <RelativeLayout
-           android:layout_width="wrap_content"
-           android:layout_height="match_parent"
-           android:layout_toEndOf="@+id/wednesday"
-           android:id="@+id/thursday"
-           >
-
-           <TextView
-               android:id="@+id/thursdayText"
-               android:layout_width="50sp"
-               android:layout_height="19sp"
-               android:fontFamily="@font/itim"
-               android:textColor="@color/daysColor"
-               android:textSize="16sp"
-               android:layout_marginStart="2sp"
-               android:layout_marginEnd="2sp"
-               android:textAlignment="center"
-               android:layout_centerVertical="true"
-               android:layout_above="@id/underLineThursday"
-               android:text="@string/thursday" />
-           <View
-               android:id="@+id/underLineThursday"
-               android:layout_width="25sp"
-               android:layout_height="4sp"
-               android:background="@drawable/user_rounded_corner"
-               android:layout_centerHorizontal="true"
-               android:layout_alignParentBottom="true"
-               android:visibility="gone"
-               android:layout_marginTop="5dp"
-               />
-       </RelativeLayout>
-
-  <RelativeLayout
-      android:layout_width="wrap_content"
-      android:layout_height="match_parent"
-      android:id="@+id/friday"
-      android:layout_toRightOf="@id/thursday"
-      >
-      <TextView
-          android:id="@+id/fridayText"
-          android:layout_width="50sp"
-          android:layout_height="19sp"
-          android:fontFamily="@font/itim"
-          android:textColor="@color/daysColor"
-          android:textSize="16sp"
-          android:layout_marginStart="2sp"
-          android:layout_marginEnd="2sp"
-          android:textAlignment="center"
-          android:layout_centerVertical="true"
-          android:layout_above="@id/underLineFriday"
-          android:text="@string/friday" />
-      <View
-          android:id="@+id/underLineFriday"
-          android:layout_width="25sp"
-          android:layout_height="4sp"
-          android:background="@drawable/user_rounded_corner"
-          android:layout_centerHorizontal="true"
-          android:layout_alignParentBottom="true"
-          android:visibility="gone"
-          android:layout_marginTop="5dp"
-          />
-  </RelativeLayout>
-       <RelativeLayout
-           android:layout_width="wrap_content"
-           android:layout_height="match_parent"
-           android:layout_toRightOf="@+id/friday"
-           android:id="@+id/saterday"
-           >
-           <TextView
-               android:id="@+id/saterdayText"
-               android:layout_width="50sp"
-               android:layout_height="19sp"
-               android:fontFamily="@font/itim"
-               android:textColor="@color/daysColor"
-               android:textSize="16sp"
-               android:layout_marginStart="2sp"
-               android:layout_marginEnd="2sp"
-               android:textAlignment="center"
-               android:layout_centerVertical="true"
-               android:layout_above="@id/underLineSaterday"
-               android:text="@string/Saturday" />
-           <View
-               android:id="@+id/underLineSaterday"
-               android:layout_width="25sp"
-               android:layout_height="4sp"
-               android:background="@drawable/user_rounded_corner"
-               android:layout_centerHorizontal="true"
-               android:layout_alignParentBottom="true"
-               android:visibility="gone"
-               android:layout_marginTop="5dp"
-               />
-       </RelativeLayout>
-
-       <RelativeLayout
-           android:layout_width="wrap_content"
-           android:layout_height="match_parent"
-           android:layout_toRightOf="@+id/saterday"
-           android:id="@+id/sunday"
-           >
-           <TextView
-               android:id="@+id/sundayText"
-               android:layout_width="50sp"
-               android:layout_height="19sp"
-               android:fontFamily="@font/itim"
-               android:textColor="@color/daysColor"
-               android:textSize="16sp"
-               android:layout_marginStart="2sp"
-               android:layout_marginEnd="2sp"
-               android:textAlignment="center"
-               android:layout_centerVertical="true"
-               android:layout_above="@id/underLineSunday"
-               android:text="@string/sunday" />
-           <View
-               android:id="@+id/underLineSunday"
-               android:layout_width="25sp"
-               android:layout_height="4sp"
-               android:background="@drawable/user_rounded_corner"
-               android:layout_centerHorizontal="true"
-               android:layout_alignParentBottom="true"
-               android:visibility="gone"
-               android:layout_marginTop="5dp"
-               />
-       </RelativeLayout>
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:id="@+id/monday"
+                >
+                <TextView
+                    android:id="@+id/mondaytext"
+                    android:layout_width="50sp"
+                    android:layout_height="19sp"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/itim"
+                    android:layout_marginStart="2sp"
+                    android:layout_marginEnd="2sp"
+                    android:textColor="@color/daysColor"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:text="@string/monday"
+                    android:layout_above="@id/underLineMonday"
+                    />
+                <View
+                    android:id="@+id/underLineMonday"
+                    android:layout_width="25sp"
+                    android:layout_height="4sp"
+                    android:background="@drawable/user_rounded_corner"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="visible"
+                    android:layout_marginTop="5dp"
+                    />
 
 
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/tuesday"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/monday"
+                >
+                <TextView
+                    android:layout_width="50sp"
+                    android:layout_height="19sp"
+                    android:fontFamily="@font/itim"
+                    android:textAlignment="center"
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp"
+                    android:layout_centerVertical="true"
+                    android:text="@string/tuesday"
+                    android:layout_marginStart="2sp"
+                    android:layout_marginEnd="2sp"
+                    android:layout_above="@id/underLineTuesday"
+                    />
+                <View
+                    android:id="@+id/underLineTuesday"
+                    android:layout_width="25sp"
+                    android:layout_height="4sp"
+                    android:background="@drawable/user_rounded_corner"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="gone"
+                    android:layout_marginTop="5dp"
+                    />
 
-    </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/wednesday"
+                android:layout_toEndOf="@id/tuesday"
+                >
+                <TextView
+                    android:id="@+id/wednesdayText"
+                    android:layout_width="50sp"
+                    android:layout_height="19sp"
+                    android:fontFamily="@font/itim"
+                    android:layout_marginStart="2sp"
+                    android:layout_marginEnd="2sp"
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:layout_centerVertical="true"
+                    android:layout_above="@id/underLineWednesday"
+                    android:text="@string/wednesday" />
+                <View
+                    android:id="@+id/underLineWednesday"
+                    android:layout_width="25sp"
+                    android:layout_height="4sp"
+                    android:background="@drawable/user_rounded_corner"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="gone"
+                    android:layout_marginTop="5dp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/wednesday"
+                android:id="@+id/thursday"
+                >
+
+                <TextView
+                    android:id="@+id/thursdayText"
+                    android:layout_width="50sp"
+                    android:layout_height="19sp"
+                    android:fontFamily="@font/itim"
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp"
+                    android:layout_marginStart="2sp"
+                    android:layout_marginEnd="2sp"
+                    android:textAlignment="center"
+                    android:layout_centerVertical="true"
+                    android:layout_above="@id/underLineThursday"
+                    android:text="@string/thursday" />
+                <View
+                    android:id="@+id/underLineThursday"
+                    android:layout_width="25sp"
+                    android:layout_height="4sp"
+                    android:background="@drawable/user_rounded_corner"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="gone"
+                    android:layout_marginTop="5dp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/friday"
+                android:layout_toRightOf="@id/thursday"
+                >
+                <TextView
+                    android:id="@+id/fridayText"
+                    android:layout_width="50sp"
+                    android:layout_height="19sp"
+                    android:fontFamily="@font/itim"
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp"
+                    android:layout_marginStart="2sp"
+                    android:layout_marginEnd="2sp"
+                    android:textAlignment="center"
+                    android:layout_centerVertical="true"
+                    android:layout_above="@id/underLineFriday"
+                    android:text="@string/friday" />
+                <View
+                    android:id="@+id/underLineFriday"
+                    android:layout_width="25sp"
+                    android:layout_height="4sp"
+                    android:background="@drawable/user_rounded_corner"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="gone"
+                    android:layout_marginTop="5dp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/friday"
+                android:id="@+id/saterday"
+                >
+                <TextView
+                    android:id="@+id/saterdayText"
+                    android:layout_width="50sp"
+                    android:layout_height="19sp"
+                    android:fontFamily="@font/itim"
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp"
+                    android:layout_marginStart="2sp"
+                    android:layout_marginEnd="2sp"
+                    android:textAlignment="center"
+                    android:layout_centerVertical="true"
+                    android:layout_above="@id/underLineSaterday"
+                    android:text="@string/Saturday" />
+                <View
+                    android:id="@+id/underLineSaterday"
+                    android:layout_width="25sp"
+                    android:layout_height="4sp"
+                    android:background="@drawable/user_rounded_corner"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="gone"
+                    android:layout_marginTop="5dp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/saterday"
+                android:id="@+id/sunday"
+                >
+                <TextView
+                    android:id="@+id/sundayText"
+                    android:layout_width="50sp"
+                    android:layout_height="19sp"
+                    android:fontFamily="@font/itim"
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp"
+                    android:layout_marginStart="2sp"
+                    android:layout_marginEnd="2sp"
+                    android:textAlignment="center"
+                    android:layout_centerVertical="true"
+                    android:layout_above="@id/underLineSunday"
+                    android:text="@string/sunday" />
+                <View
+                    android:id="@+id/underLineSunday"
+                    android:layout_width="25sp"
+                    android:layout_height="4sp"
+                    android:background="@drawable/user_rounded_corner"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="gone"
+                    android:layout_marginTop="5dp"
+                    />
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
 
 
         <EditText
@@ -338,27 +348,37 @@
             android:hint="search"
             android:background="@drawable/card_rounded_corner"
             />
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/main_frame_layout"
-        android:layout_marginBottom="10sp"
-        android:layout_marginEnd="26sp"
-        android:layout_marginStart="26sp"
-        android:layout_weight=".9"
-        android:layout_marginTop="12sp"
-        />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/main_frame_layout"
+            android:layout_marginBottom="10sp"
+            android:layout_marginEnd="26sp"
+            android:layout_marginStart="26sp"
+            android:layout_weight=".9"
+            android:layout_marginTop="12sp"
+            />
 
 
-   <ImageButton
-       android:id="@+id/goToNoteBtn"
-       android:layout_width="50sp"
-       android:layout_height="49sp"
-       android:layout_gravity="end"
-       android:layout_marginEnd="27sp"
-       android:layout_marginBottom="20sp"
-       android:background="@drawable/floating_button_background"
-       android:src="@mipmap/plus_icon"/>
+        <ImageButton
+            android:id="@+id/goToNoteBtn"
+            android:layout_width="50sp"
+            android:layout_height="49sp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="27sp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/floating_button_background"
+            android:src="@mipmap/plus_icon"/>
 
 
-</LinearLayout>
+    </LinearLayout>
+<!-- Navigation drawer -->
+<com.google.android.material.navigation.NavigationView
+    android:id="@+id/nav_view"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    app:menu="@menu/activity_main_drawer"
+    app:headerLayout="@layout/nav_header_main"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -8,6 +8,7 @@
     android:background="@mipmap/settings_background_image"
     android:layout_height="match_parent"
     tools:context=".settingAndAbout">
+
   <ImageButton
       android:id="@+id/getBack"
       android:layout_width="40sp"
