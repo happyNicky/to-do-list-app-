@@ -27,23 +27,20 @@
             android:name=".settingAndAbout"
             android:exported="false" />
         <activity
-            android:name=".signUpPage"
-            android:exported="false" />
-        <activity
-            android:name=".loginPage"
+            android:name=".welcome_page"
             android:exported="false" />
         <activity
             android:name=".splashActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
 
         <meta-data
             android:name="preloaded_fonts"

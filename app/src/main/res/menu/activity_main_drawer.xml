@@ -3,22 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single" >
         <item
             android:id="@+id/settings"
             android:icon="@drawable/setting_icon"
             android:title="settings" />
         <item
             android:id="@+id/theme"
-
+            android:icon="@drawable/theme_icon"
             android:title="theme" />
         <item
             android:id="@+id/about"
-
+          android:icon="@drawable/about_icon"
             android:title="about" />
         <item
             android:id="@+id/rate"
-
+            android:icon="@drawable/rate_icon"
             android:title="rate" />
     </group>
 </menu>

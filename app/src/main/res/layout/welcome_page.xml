@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginPage">
+    tools:context=".welcome_page">
 
     <TextView
         android:id="@+id/WelcomeText"
@@ -28,60 +28,43 @@
         android:src="@mipmap/todoimage" />
 
     <EditText
-        android:id="@+id/emailEditTxt"
+        android:id="@+id/userName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:layout_below="@+id/logo"
         android:layout_marginLeft="84dp"
-        android:layout_marginTop="94dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="84dp"
         android:fontFamily="@font/kotta_one"
         android:textSize="24dp"
-        android:hint="email" />
-    <EditText
-        android:id="@+id/passwordEditTxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/emailEditTxt"
-        android:layout_marginTop="24dp"
-        android:layout_marginLeft="84dp"
-        android:layout_marginRight="84dp"
-        android:fontFamily="@font/kotta_one"
-        android:textSize="24dp"
-        android:hint="password"
-        />
+        android:hint="user name" />
+
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/NextBtn"
         android:layout_width="wrap_content"
         android:layout_height="40sp"
-        android:layout_below="@id/passwordEditTxt"
+        android:layout_below="@id/userName"
         android:layout_marginTop="24dp"
         android:layout_marginLeft="235dp"
         android:textColor="@color/white"
         android:background="@drawable/button_rounded_corner"
-        android:text="login"
+        android:text="Next"
         android:fontFamily="@font/kotta_one"
         android:textSize="20sp"
+        android:layout_centerHorizontal="true"
         />
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Progress_bar"
         android:visibility="gone"
-        android:layout_below="@id/loginButton"
+        android:layout_below="@id/NextBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         />
 
-    <TextView
-        android:id="@+id/sign_up_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
-        android:fontFamily="sans-serif"
-        android:text="don't have account? sign up" />
+
 
 
 

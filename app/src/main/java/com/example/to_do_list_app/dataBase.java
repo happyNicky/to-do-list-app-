@@ -19,6 +19,7 @@ public class dataBase extends SQLiteOpenHelper {
     public static final String DAY = "day";
     public static final String DESCRIPTION = "description";
     public static final String IS_COMPLETED = "isCompleted";
+    private static final String USERNAME ="userName" ;
 
     public dataBase(@Nullable Context context) {
         super(context, "todoList.db", null, 1);
@@ -26,7 +27,7 @@ public class dataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableStatement= " CREATE TABLE " + TO_DO_LIST_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + TITLE + " Text, " + DAY + " TEXT," + DESCRIPTION + " TEXT, " + IS_COMPLETED + " BOOL)";
+        String createTableStatement= " CREATE TABLE " + TO_DO_LIST_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + TITLE + " Text, " + DAY + " TEXT," + DESCRIPTION + " TEXT, " + IS_COMPLETED + " BOOL, " +USERNAME + "TEXT)";
         db.execSQL(createTableStatement);
     }
 
@@ -48,6 +49,30 @@ public class dataBase extends SQLiteOpenHelper {
             return false;
         return  true;
     }
+
+    public   String retunUserName()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String username = null;
+        String selectQuery = "SELECT *  FROM " + TO_DO_LIST_TABLE +"";
+        Cursor cursor = db.rawQuery(selectQuery,null);
+        if (cursor.moveToFirst()) {
+            username = cursor.getString(cursor.getColumnIndexOrThrow(USERNAME));
+        }
+        cursor.close();
+        db.close();
+        return username;
+
+    }
+    public void addUser(String userName)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();// static username
+         values.put(USERNAME, "username");
+         db.insert(TO_DO_LIST_TABLE, null, values);
+         db.close();
+    }
+
 
     public ArrayList<String> returnTitles(String day) {
         ArrayList<String> titlesList = new ArrayList<>();

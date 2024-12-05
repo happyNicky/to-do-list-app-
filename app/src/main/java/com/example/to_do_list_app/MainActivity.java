@@ -1,6 +1,7 @@
 package com.example.to_do_list_app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
    private RelativeLayout monday,tuesday,wednesday,friday,thursday,saterday,sunday;
    private View mondayView,tuesdayView,wednesdayView,thursdayView,fridayView,saterdayView,sundayView;
    private mondayFragment monFrag;
+
     private ImageButton goToNoteBtn;
    private static String day="monday";
    private Bundle bundle;
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText searchEditText;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    private  String userName;
+    private TextView userNameGreating;
 
 
     public static String getDay() {
@@ -53,6 +57,20 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        boolean hasOpenedBefore = preferences.getBoolean("hasOpenedBefore", false);
+        if (!hasOpenedBefore) { // Redirect to IntroActivity if the app is being opened for the first time
+             Intent intent1 = new Intent(MainActivity.this,
+                     welcome_page.class);
+             startActivity(intent1);
+             finish();
+             return;
+        }
+       db= new dataBase(getApplicationContext());
+       // userName= db.retunUserName();
+
+        userNameGreating=findViewById(R.id.userNameGriting);
+        userNameGreating.setText("Hi,"+"user");
         // instantiating layout files
         burgerMenu=findViewById(R.id.burgerMenu);
         monday=findViewById(R.id.monday);
@@ -73,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         fridayView=findViewById(R.id.underLineFriday);
         saterdayView=findViewById(R.id.underLineSaterday);
         sundayView=findViewById(R.id.underLineSunday);
-        db= new dataBase(getApplicationContext());
+
          titles= db.returnTitles(day);
         // instantiating fragments
         monFrag=new mondayFragment();
