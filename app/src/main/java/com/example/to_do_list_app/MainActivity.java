@@ -3,9 +3,11 @@ package com.example.to_do_list_app;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +15,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -24,6 +28,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -45,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private  String userName;
     private TextView userNameGreating;
-
-
+    private static final int PICK_IMAGE=1;
+    private ShapeableImageView shapeableImageView;
     public static String getDay() {
         return day;
     }
@@ -82,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         sunday=findViewById(R.id.sunday);
         goToNoteBtn=findViewById(R.id.goToNoteBtn);
         searchEditText=findViewById(R.id.search_edit_text);
+        shapeableImageView=findViewById(R.id.userImage);
 
         // instantiating view layout
         mondayView=findViewById(R.id.underLineMonday);
@@ -113,6 +119,12 @@ public class MainActivity extends AppCompatActivity {
 
 
        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,monFrag).commit();
+
+       shapeableImageView.setOnClickListener(v -> {
+           Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+           startActivityForResult(intent, PICK_IMAGE);
+       });
+
 
         monday.setOnClickListener(v -> {
             day="monday";
@@ -339,6 +351,13 @@ public class MainActivity extends AppCompatActivity {
         else {
             super.onBackPressed();
         } }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
+            Uri selectedImage = data.getData();
+            shapeableImageView.setImageURI(selectedImage);
+        }
+    }
 
 
 }

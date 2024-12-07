@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -15,11 +16,6 @@
         <activity
             android:name=".detailsSection"
             android:exported="false" />
-        <activity
-            android:name=".navigationdrawer"
-            android:exported="false"
-            android:label="@string/title_activity_navigationdrawer"
-            android:theme="@style/Theme.To_do_list_App.NoActionBar" />
         <activity
             android:name=".addNote"
             android:exported="false" />
