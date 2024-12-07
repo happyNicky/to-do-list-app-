@@ -36,7 +36,7 @@ public class welcome_page extends AppCompatActivity {
         userName=findViewById(R.id.userName);
         nextBtn=findViewById(R.id.NextBtn);
         pg_bar=findViewById(R.id.Progress_bar);
-        //db= new dataBase(getApplicationContext());
+        db= new dataBase(getApplicationContext());
 
 
         SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
@@ -47,7 +47,7 @@ public class welcome_page extends AppCompatActivity {
         nextBtn.setOnClickListener(v -> {
             pg_bar.setVisibility(View.VISIBLE);
             userNameTxt=userName.getText().toString();
-           // db.addUser(userNameTxt);
+            db.addUser(userNameTxt);
             Intent intent = new Intent(welcome_page.this, MainActivity.class);
             intent.putExtra("userName",userNameTxt);
             startActivity(intent);

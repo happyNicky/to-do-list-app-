@@ -27,7 +27,7 @@ public class dataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableStatement= " CREATE TABLE " + TO_DO_LIST_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + TITLE + " Text, " + DAY + " TEXT," + DESCRIPTION + " TEXT, " + IS_COMPLETED + " BOOL, " +USERNAME + "TEXT)";
+        String createTableStatement= " CREATE TABLE " + TO_DO_LIST_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + TITLE + " Text, " + DAY + " TEXT," + DESCRIPTION + " TEXT, " + IS_COMPLETED + " BOOL, " +USERNAME + " TEXT )";
         db.execSQL(createTableStatement);
     }
 
@@ -54,7 +54,7 @@ public class dataBase extends SQLiteOpenHelper {
     {
         SQLiteDatabase db = this.getReadableDatabase();
         String username = null;
-        String selectQuery = "SELECT *  FROM " + TO_DO_LIST_TABLE +"";
+        String selectQuery = "SELECT *  FROM " + TO_DO_LIST_TABLE;
         Cursor cursor = db.rawQuery(selectQuery,null);
         if (cursor.moveToFirst()) {
             username = cursor.getString(cursor.getColumnIndexOrThrow(USERNAME));
@@ -68,7 +68,7 @@ public class dataBase extends SQLiteOpenHelper {
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();// static username
-         values.put(USERNAME, "username");
+         values.put(USERNAME, userName);
          db.insert(TO_DO_LIST_TABLE, null, values);
          db.close();
     }

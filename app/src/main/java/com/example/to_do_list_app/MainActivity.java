@@ -67,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
              return;
         }
        db= new dataBase(getApplicationContext());
-       // userName= db.retunUserName();
+       userName= db.retunUserName();
 
         userNameGreating=findViewById(R.id.userNameGriting);
-        userNameGreating.setText("Hi,"+"user");
+        userNameGreating.setText("Hi,"+userName);
         // instantiating layout files
         burgerMenu=findViewById(R.id.burgerMenu);
         monday=findViewById(R.id.monday);
