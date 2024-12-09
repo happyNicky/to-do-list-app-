@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView userNameGreating;
     private static final int PICK_IMAGE=1;
     private ShapeableImageView shapeableImageView;
+
     public static String getDay() {
         return day;
     }
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         goToNoteBtn=findViewById(R.id.goToNoteBtn);
         searchEditText=findViewById(R.id.search_edit_text);
         shapeableImageView=findViewById(R.id.userImage);
+        navigationView=findViewById(R.id.nav_view);
 
         // instantiating view layout
         mondayView=findViewById(R.id.underLineMonday);
@@ -125,6 +127,30 @@ public class MainActivity extends AppCompatActivity {
            startActivityForResult(intent, PICK_IMAGE);
        });
 
+       navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+           @Override
+           public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+               if (R.id.settings==item.getItemId())
+               {
+
+               }
+               else if(R.id.theme==item.getItemId())
+               {
+
+               }
+               else if(R.id.about==item.getItemId())
+               {  startActivity(new Intent(MainActivity.this, about_activity.class));
+               }
+               else if(R.id.rate==item.getItemId())
+               {
+
+               }
+
+             drawerLayout.closeDrawers();
+               return true;
+           }
+       });
+
 
         monday.setOnClickListener(v -> {
             day="monday";
@@ -135,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
            if(mondayView.getVisibility()==View.VISIBLE) {
               // do nothing
            }
+
            else
            {
                mondayView.setVisibility(View.VISIBLE);
@@ -356,6 +383,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
             Uri selectedImage = data.getData();
             shapeableImageView.setImageURI(selectedImage);
+            
         }
     }
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 
 import androidx.annotation.Nullable;
 
@@ -20,6 +21,7 @@ public class dataBase extends SQLiteOpenHelper {
     public static final String DESCRIPTION = "description";
     public static final String IS_COMPLETED = "isCompleted";
     private static final String USERNAME ="userName" ;
+    private static final String COLUMN_IMAGE = "image";
 
     public dataBase(@Nullable Context context) {
         super(context, "todoList.db", null, 1);
@@ -27,7 +29,7 @@ public class dataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableStatement= " CREATE TABLE " + TO_DO_LIST_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + TITLE + " Text, " + DAY + " TEXT," + DESCRIPTION + " TEXT, " + IS_COMPLETED + " BOOL, " +USERNAME + " TEXT )";
+        String createTableStatement= " CREATE TABLE " + TO_DO_LIST_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + TITLE + " Text, " + DAY + " TEXT," + DESCRIPTION + " TEXT, " + IS_COMPLETED + " BOOL, " +USERNAME + " TEXT, "+ COLUMN_IMAGE+ " BLOB)";
         db.execSQL(createTableStatement);
     }
 
@@ -138,6 +140,7 @@ public class dataBase extends SQLiteOpenHelper {
 
         return titlesList;
     }
+
 
 
 }

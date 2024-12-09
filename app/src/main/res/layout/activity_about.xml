@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5BF13E"
+    tools:context=".about_activity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27sp"
+        android:layout_marginTop="44sp"
+        android:layout_marginEnd="27sp"
+        android:id="@+id/goBackAndAboutApp"
+
+        >
+        <ImageButton
+            android:id="@+id/goBackBtn"
+            android:layout_width="42sp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/creepster"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:text="About App"
+            android:textSize="32sp" />
+        
+
+    </RelativeLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appDiscription"
+        android:layout_width="match_parent"
+        android:layout_height="200sp"
+        android:layout_below="@+id/goBackAndAboutApp"
+        android:layout_marginStart="27sp"
+        android:layout_marginEnd="27sp"
+        android:layout_marginTop="20sp"
+        app:cardCornerRadius="20sp"
+
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10sp"
+            android:text="The system aims to provide an efficient interface for tourists and travel managers, offering various functionalities for managing and accessing travel-related information:
+Dynamic Content Updates: Automatically update information on historical sites, natural heritages, cultural events, and hol"
+             android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@id/aboutMetxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appDiscription"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:fontFamily="@font/creepster"
+        android:text="About Developer"
+        android:textColor="@color/black"
+        android:textSize="32sp" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/aboutMe"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:layout_below="@+id/aboutMetxt"
+        android:layout_marginStart="27sp"
+        android:layout_marginEnd="27sp"
+        android:layout_marginTop="20sp"
+        app:cardCornerRadius="20sp"
+        >
+        <TextView
+            android:id="@+id/detailsAboutMe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+             android:text="The system aims to provide an efficient interface for tourists and travel managers, offering various functionalities for managing and accessing travel-related information:
+Dynamic Content Updates: Automatically update information on historical sites, natural heritages, cultural events, and holidays based on real-time data.
+Hotel Suggestions: Provide personalized hotel recommendations around tourist sites, considering user preferences and availability."
+            android:textAlignment="center"
+
+            android:padding="20sp"
+            />
+        <Button
+            android:id="@+id/readMoreBtn"
+            android:layout_width="140sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="10sp"
+            android:text="Read More"
+            android:background="@drawable/button_rounded_corner"
+            android:textColor="@color/white"
+            />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
