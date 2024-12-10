@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -153,9 +154,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-          if(db.returnIsImageChoosen())
-         shapeableImageView.setImageURI(db.getImage(getApplicationContext()));
-
+        if(db.isSelected())
+        { Uri selectedImage = db.getImage(getApplicationContext());
+            shapeableImageView.setImageURI(selectedImage);
+        }
 
         monday.setOnClickListener(v -> {
             day = "monday";
@@ -367,7 +369,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
             Uri selectedImage = data.getData();
             shapeableImageView.setImageURI(selectedImage);
-            db.insertImage(getApplicationContext(), selectedImage);
+            db.insertOrUpdateImage(getApplicationContext(), selectedImage);
         }
     }
 
