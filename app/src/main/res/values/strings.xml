@@ -20,8 +20,9 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
+<string name="aboutApp" >Our to-do list application is designed to help you efficiently plan and manage your weekly schedules. By organizing tasks, setting priorities, and tracking progress, it empowers you to stay focused and productive, ensuring you achieve your goals with ease. </string>
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="aboutDeveloper">A dedicated 3rd-year Computer Science student with a passion for mobile and software development. Proficient in Java, C++, HTML, CSS, and JavaScript, showcasing a strong foundation in both front-end and back-end technologies. Continuously learning and exploring the latest trends in the tech world, eager to apply knowledge in practical projects and contribute to innovative solutions. Known for a meticulous approach to coding and a keen interest in building efficient and user-friendly applications. A promising developer ready to make an impact in the tech industry.</string>
 </resources>

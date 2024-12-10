@@ -52,8 +52,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10sp"
-            android:text="The system aims to provide an efficient interface for tourists and travel managers, offering various functionalities for managing and accessing travel-related information:
-Dynamic Content Updates: Automatically update information on historical sites, natural heritages, cultural events, and hol"
+
+            android:scrollbars="vertical"
+            android:text="@string/aboutApp"
              android:layout_gravity="center"
             android:textColor="@color/black"
             android:textAlignment="center"
@@ -91,10 +92,8 @@ Dynamic Content Updates: Automatically update information on historical sites, n
             android:layout_height="match_parent"
             android:textColor="@color/black"
             android:textSize="18sp"
-             android:text="The system aims to provide an efficient interface for tourists and travel managers, offering various functionalities for managing and accessing travel-related information:
-Dynamic Content Updates: Automatically update information on historical sites, natural heritages, cultural events, and holidays based on real-time data.
-Hotel Suggestions: Provide personalized hotel recommendations around tourist sites, considering user preferences and availability."
-            android:textAlignment="center"
+             android:text="@string/aboutDeveloper"
+             android:textAlignment="center"
 
             android:padding="20sp"
             />

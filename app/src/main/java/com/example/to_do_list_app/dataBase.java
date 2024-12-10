@@ -9,6 +9,11 @@ import android.net.Uri;
 
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +27,7 @@ public class dataBase extends SQLiteOpenHelper {
     public static final String IS_COMPLETED = "isCompleted";
     private static final String USERNAME ="userName" ;
     private static final String COLUMN_IMAGE = "image";
+    private static final String IMAGE_IS_CHOOSEN ="imageIschoosen";
 
     public dataBase(@Nullable Context context) {
         super(context, "todoList.db", null, 1);
@@ -29,7 +35,7 @@ public class dataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableStatement= " CREATE TABLE " + TO_DO_LIST_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + TITLE + " Text, " + DAY + " TEXT," + DESCRIPTION + " TEXT, " + IS_COMPLETED + " BOOL, " +USERNAME + " TEXT, "+ COLUMN_IMAGE+ " BLOB)";
+        String createTableStatement= " CREATE TABLE " + TO_DO_LIST_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + TITLE + " Text, " + DAY + " TEXT," + DESCRIPTION + " TEXT, " + IS_COMPLETED + " BOOL, " +USERNAME + " TEXT, "+ COLUMN_IMAGE+ " BLOB, "+ IMAGE_IS_CHOOSEN+ " BOOL)";
         db.execSQL(createTableStatement);
     }
 
@@ -37,6 +43,72 @@ public class dataBase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+    public void insertImage(Context context, Uri imageUri) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        byte[] imageBytes = null;
+
+        try {
+            // Convert URI to byte array
+            InputStream inputStream = context.getContentResolver().openInputStream(imageUri);
+            imageBytes = getBytes(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Prepare the data for insertion
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_IMAGE, imageBytes);
+        contentValues.put(IMAGE_IS_CHOOSEN, 1);
+        db.insert(TO_DO_LIST_TABLE, null, contentValues);
+
+        db.close();
+    }
+
+    // Helper method to convert InputStream to byte array
+    private byte[] getBytes(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+        int bufferSize = 1024;
+        byte[] buffer = new byte[bufferSize];
+
+        int len = 0;
+        while ((len = inputStream.read(buffer)) != -1) {
+            byteBuffer.write(buffer, 0, len);
+        }
+        return byteBuffer.toByteArray();
+    }
+    public Uri getImage(Context context) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Uri imageUri = null;
+
+        String selectQuery = "SELECT * FROM " + TO_DO_LIST_TABLE;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            byte[] imageBytes = cursor.getBlob(cursor.getColumnIndexOrThrow(COLUMN_IMAGE));
+            // Save image to the cache directory and get the URI
+            imageUri = saveImageToCache(context, imageBytes);
+        }
+        cursor.close();
+        db.close();
+        return imageUri;
+    }
+
+    private Uri saveImageToCache(Context context, byte[] imageBytes) {
+        File cacheDir = context.getCacheDir();
+        File tempFile = new File(cacheDir, "temp_image");
+        try {
+            FileOutputStream fos = new FileOutputStream(tempFile);
+            fos.write(imageBytes);
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return Uri.fromFile(tempFile);
+    }
+
+
+
+
+
 
     public boolean addOne(dataModelClass datamodel)
     {
@@ -65,6 +137,20 @@ public class dataBase extends SQLiteOpenHelper {
         db.close();
         return username;
 
+    }
+    public   boolean returnIsImageChoosen()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        boolean isImageChoosen = false;
+        String selectQuery = "SELECT *  FROM " + TO_DO_LIST_TABLE;
+        Cursor cursor = db.rawQuery(selectQuery,null);
+        if (cursor.moveToFirst()) {
+            int imageIsChosenColumnIndex = cursor.getColumnIndexOrThrow(IMAGE_IS_CHOOSEN);
+            isImageChoosen = cursor.getInt(imageIsChosenColumnIndex) > 0;
+        }
+        cursor.close();
+        db.close();
+        return isImageChoosen;
     }
     public void addUser(String userName)
     {
@@ -139,6 +225,24 @@ public class dataBase extends SQLiteOpenHelper {
         db.close();
 
         return titlesList;
+    }
+    private byte[] getBytesFromUri(Context context, Uri uri) {
+        try {
+            InputStream inputStream = context.getContentResolver().openInputStream(uri);
+            ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+            int bufferSize = 1024;
+            byte[] buffer = new byte[bufferSize];
+
+            int len = 0;
+            while ((len = inputStream.read(buffer)) != -1) {
+                byteBuffer.write(buffer, 0, len);
+            }
+
+            return byteBuffer.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace(); // Log the error
+        }
+        return null;
     }
 
 
