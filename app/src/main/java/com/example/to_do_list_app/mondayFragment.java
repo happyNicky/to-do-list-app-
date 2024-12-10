@@ -18,7 +18,8 @@ public class mondayFragment extends Fragment {
 
       private RecyclerView recy;
 
-      private daysDataAdapter adapter;
+
+    private daysDataAdapter adapter;
       private ArrayList<String> titles= new ArrayList<>();
 
     @Override

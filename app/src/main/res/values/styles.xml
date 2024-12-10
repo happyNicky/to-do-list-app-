@@ -4,5 +4,20 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+    <style name="Base.Theme.To_do_list_App1" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+    <style name="Theme.To_do_list_App1" parent="Base.Theme.To_do_list_App" />
+    <style name="Theme.To_do_list_App.NoActionBar1">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.To_do_list_App.AppBarOverlay1" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.To_do_list_App.PopupOverlay1" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Base.Theme.To_do_list_AppNight1" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
 
 </resources>

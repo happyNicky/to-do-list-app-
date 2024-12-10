@@ -4,17 +4,21 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -140,16 +144,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (R.id.settings == item.getItemId()) {
-
+                    drawerLayout.closeDrawers();
                 } else if (R.id.theme == item.getItemId()) {
+                    showSubMenu(findViewById(R.id.theme));
 
                 } else if (R.id.about == item.getItemId()) {
                     startActivity(new Intent(MainActivity.this, about_activity.class));
+                    drawerLayout.closeDrawers();
                 } else if (R.id.rate == item.getItemId()) {
-
+                    drawerLayout.closeDrawers();
                 }
 
-                drawerLayout.closeDrawers();
+
                 return true;
             }
         });
@@ -373,6 +379,45 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void showSubMenu(View anchor) {
+        PopupMenu popupMenu = new PopupMenu(this, anchor, Gravity.END);
+        popupMenu.getMenuInflater().inflate(R.menu.theme_sub_menu, popupMenu.getMenu());
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                   if(item.getItemId()==R.id.drakTheme) {
+                           findViewById(R.id.main).setBackgroundColor(Color.BLACK);
+                           searchEditText.setTextColor(Color.WHITE);
+                           searchEditText.setHintTextColor(Color.parseColor("#656161"));
+                           TextView youshouldTxt=findViewById(R.id.youShouldTxt);
+                           youshouldTxt.setTextColor(Color.WHITE);
+                           burgerMenu.setBackgroundColor(Color.BLACK);
+                           burgerMenu.setColorFilter(Color.rgb(255,255,255));
+                       findViewById(R.id.main_frame_layout).setBackgroundColor(Color.BLACK);
 
+                           drawerLayout.closeDrawers();
+                      }
+                    else if(item.getItemId()== R.id.whiteTheme)
+                    {
+                        findViewById(R.id.main).setBackgroundColor(Color.WHITE);
+                        searchEditText.setTextColor(Color.BLACK);
+                        searchEditText.setHintTextColor(Color.parseColor("#656161"));
+                        TextView youshouldTxt=findViewById(R.id.youShouldTxt);
+                        youshouldTxt.setTextColor(Color.BLACK);
+                        burgerMenu.setBackgroundColor(Color.WHITE);
+                        burgerMenu.setColorFilter(Color.rgb(1,1,1));
+                        findViewById(R.id.main_frame_layout).setBackgroundColor(Color.WHITE);
+                        drawerLayout.closeDrawers();
+                    }
 
+                    return true;
+
+                }
+        });
+        popupMenu.show();
     }
+
+
+
+
+}
