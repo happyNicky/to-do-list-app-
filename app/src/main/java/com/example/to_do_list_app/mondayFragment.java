@@ -1,5 +1,6 @@
 package com.example.to_do_list_app;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,11 +21,14 @@ public class mondayFragment extends Fragment {
 
 
     private daysDataAdapter adapter;
+    private View rootView;
+
       private ArrayList<String> titles= new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -34,7 +38,7 @@ public class mondayFragment extends Fragment {
 
         // Inflate the layout for this fragment
 
-        View rootView=inflater.inflate(R.layout.fragment_monday, container, false);
+         rootView=inflater.inflate(R.layout.fragment_monday, container, false);
         recy = rootView.findViewById(R.id.RecyclerView);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getContext());
         manager.canScrollVertically();
@@ -57,5 +61,11 @@ public class mondayFragment extends Fragment {
         titles.clear();
         titles.addAll(newTitles);
         adapter.notifyDataSetChanged();
+    }
+    public void changeBackground(int color)
+    {    if(color==1){
+           rootView.findViewById(R.id.mondayFragment).setBackgroundColor(Color.BLACK);
+           recy.setBackgroundColor(Color.BLACK);
+       }
     }
 }

@@ -41,17 +41,24 @@ public class welcome_page extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("hasOpenedBefore", true);
-        editor.apply();
+
 
         nextBtn.setOnClickListener(v -> {
             pg_bar.setVisibility(View.VISIBLE);
             userNameTxt=userName.getText().toString();
-            db.addUser(userNameTxt);
-            Intent intent = new Intent(welcome_page.this, MainActivity.class);
-            intent.putExtra("userName",userNameTxt);
-            startActivity(intent);
-            finish();
+            if(userNameTxt.isEmpty())
+                userName.setError("user name can't be empty!");
+            else
+            {
+                db.addUser(userNameTxt);
+                editor.putBoolean("hasOpenedBefore", true);
+                editor.apply();
+                Intent intent = new Intent(welcome_page.this, MainActivity.class);
+                intent.putExtra("userName",userNameTxt);
+                startActivity(intent);
+                finish();
+            }
+
 
         });
 

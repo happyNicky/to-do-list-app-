@@ -83,8 +83,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         db = new dataBase(getApplicationContext());
-        userName = db.retunUserName();
-
+        userName=db.retunUserName();
 
         userNameGreating = findViewById(R.id.userNameGriting);
         userNameGreating.setText("Hi," + userName);
@@ -159,12 +158,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
+        System.out.println("before is selected ");
         if(db.isSelected())
         { Uri selectedImage = db.getImage(getApplicationContext());
+            System.out.println("is selected is working ");
             shapeableImageView.setImageURI(selectedImage);
         }
-
+        System.out.println("after is selected");
         monday.setOnClickListener(v -> {
             day = "monday";
             titles = db.returnTitles(day);
@@ -394,7 +394,6 @@ public class MainActivity extends AppCompatActivity {
                            burgerMenu.setBackgroundColor(Color.BLACK);
                            burgerMenu.setColorFilter(Color.rgb(255,255,255));
                        findViewById(R.id.main_frame_layout).setBackgroundColor(Color.BLACK);
-
                            drawerLayout.closeDrawers();
                       }
                     else if(item.getItemId()== R.id.whiteTheme)

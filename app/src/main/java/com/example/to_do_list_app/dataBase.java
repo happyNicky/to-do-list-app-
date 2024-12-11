@@ -73,7 +73,7 @@ public class dataBase extends SQLiteOpenHelper {
 
         String selectQuery = "SELECT * FROM " + USER_INFO;
         Cursor cursor = db.rawQuery(selectQuery, null);
-        if (cursor.moveToPosition(1)) {
+        if (cursor.moveToPosition(0)) {
             String imagePath = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_IMAGE));
             File imageFile = new File(imagePath);
             imageUri = Uri.fromFile(imageFile);
@@ -149,7 +149,7 @@ public class dataBase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(USERNAME, userName);
-        db.insert(USER_INFO, null, values);
+        db.insert(TO_DO_LIST_TABLE, null, values);
         db.close();
     }
 
@@ -183,7 +183,8 @@ public class dataBase extends SQLiteOpenHelper {
         boolean isSelectedImage = false;
         String selectQuery = "SELECT * FROM " + USER_INFO;
         Cursor cursor = db.rawQuery(selectQuery, null);
-        if (cursor.moveToFirst()) {
+        if (cursor.moveToPosition(0)) {
+
             int booleanColumnIndex = cursor.getColumnIndexOrThrow(IMAGE_IS_CHOOSEN);
             isSelectedImage = cursor.getInt(booleanColumnIndex) > 0;
         } cursor.close();
