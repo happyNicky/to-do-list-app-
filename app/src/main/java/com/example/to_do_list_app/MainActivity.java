@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView userNameGreating;
     private static final int PICK_IMAGE = 1;
     private ShapeableImageView shapeableImageView;
+    private int theme=Color.WHITE;
 
     public static String getDay() {
         return day;
@@ -312,6 +313,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, addNote.class);
             intent.putExtra("day", day);
             intent.putExtra("titles", titles);
+            intent.putExtra("theme",theme);
             startActivity(intent);
         });
         searchEditText.setOnTouchListener(new View.OnTouchListener() {
@@ -386,26 +388,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                    if(item.getItemId()==R.id.drakTheme) {
-                           findViewById(R.id.main).setBackgroundColor(Color.BLACK);
-                           searchEditText.setTextColor(Color.WHITE);
+                            theme=Color.BLACK;
+                           findViewById(R.id.main).setBackgroundColor(theme);
+                           searchEditText.setTextColor(theme);
                            searchEditText.setHintTextColor(Color.parseColor("#656161"));
                            TextView youshouldTxt=findViewById(R.id.youShouldTxt);
                            youshouldTxt.setTextColor(Color.WHITE);
-                           burgerMenu.setBackgroundColor(Color.BLACK);
+                           burgerMenu.setBackgroundColor(theme);
                            burgerMenu.setColorFilter(Color.rgb(255,255,255));
-                       findViewById(R.id.main_frame_layout).setBackgroundColor(Color.BLACK);
+                       findViewById(R.id.main_frame_layout).setBackgroundColor(theme);
+                      monFrag.changeBackground(theme);
                            drawerLayout.closeDrawers();
                       }
                     else if(item.getItemId()== R.id.whiteTheme)
-                    {
-                        findViewById(R.id.main).setBackgroundColor(Color.WHITE);
+                    {      theme= Color.WHITE;
+                        findViewById(R.id.main).setBackgroundColor(theme);
                         searchEditText.setTextColor(Color.BLACK);
                         searchEditText.setHintTextColor(Color.parseColor("#656161"));
                         TextView youshouldTxt=findViewById(R.id.youShouldTxt);
                         youshouldTxt.setTextColor(Color.BLACK);
-                        burgerMenu.setBackgroundColor(Color.WHITE);
+                        burgerMenu.setBackgroundColor(theme);
                         burgerMenu.setColorFilter(Color.rgb(1,1,1));
-                        findViewById(R.id.main_frame_layout).setBackgroundColor(Color.WHITE);
+                        findViewById(R.id.main_frame_layout).setBackgroundColor(theme);
+
+                        monFrag.changeBackground(theme);
                         drawerLayout.closeDrawers();
                     }
 

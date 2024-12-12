@@ -62,10 +62,7 @@ public class mondayFragment extends Fragment {
         titles.addAll(newTitles);
         adapter.notifyDataSetChanged();
     }
-    public void changeBackground(int color)
-    {    if(color==1){
-           rootView.findViewById(R.id.mondayFragment).setBackgroundColor(Color.BLACK);
-           recy.setBackgroundColor(Color.BLACK);
-       }
+    public  void changeBackground(int color)
+    {   adapter.changeBackgroundColor(color);
     }
 }
