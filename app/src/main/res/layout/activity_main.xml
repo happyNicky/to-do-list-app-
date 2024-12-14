@@ -9,31 +9,29 @@ android:layout_height="match_parent"
 tools:context=".MainActivity">
 
 <!-- Main content frame -->
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <!-- Navigation drawer -->
+    <LinearLayout
         android:id="@+id/main"
-        android:layout_height="match_parent"
-        android:background="@color/white"
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="vertical"
         tools:context=".MainActivity">
 
         <RelativeLayout
             android:id="@+id/userNameBurger"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30sp"
             android:layout_marginStart="27sp"
-            android:layout_marginEnd="27sp"
-            >
+            android:layout_marginTop="30sp"
+            android:layout_marginEnd="27sp">
 
             <ImageButton
                 android:id="@+id/burgerMenu"
-                android:layout_centerVertical="true"
                 android:layout_width="35sp"
                 android:layout_height="35sp"
+                android:layout_centerVertical="true"
                 android:background="@color/white"
                 android:src="@mipmap/burger_menu_icon" />
 
@@ -41,43 +39,41 @@ tools:context=".MainActivity">
                 android:id="@+id/userName"
                 android:layout_width="153sp"
                 android:layout_height="40sp"
+                android:layout_alignParentEnd="true"
                 android:background="@drawable/user_rounded_corner"
                 android:paddingStart="7sp"
-                android:paddingEnd="7sp"
                 android:paddingTop="5sp"
-                android:paddingBottom="5sp"
-                android:layout_alignParentEnd="true">
+                android:paddingEnd="7sp"
+                android:paddingBottom="5sp">
 
                 <TextView
                     android:id="@+id/userNameGriting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:fontFamily="@font/itim"
                     android:text="@string/hi_user_name"
-                    android:layout_centerVertical="true"
-                    android:textSize="16sp"
-
                     android:textColor="@color/white"
-                    />
+
+                    android:textSize="16sp" />
 
                 <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/userImage"
                     android:layout_width="30sp"
                     android:layout_height="30sp"
-                    android:id="@+id/userImage"
-                    app:shapeAppearanceOverlay="@style/roundedImageView"
                     android:layout_alignParentEnd="true"
-                    android:src="@mipmap/user"
-                    android:scaleType="centerCrop"
                     android:layout_centerVertical="true"
-                    />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/user_icon"
+                    app:shapeAppearanceOverlay="@style/roundedImageView" />
             </RelativeLayout>
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/textAndLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44sp"
-            android:id="@+id/textAndLine"
-            >
+            android:layout_marginTop="44sp">
 
             <TextView
                 android:id="@+id/youShouldTxt"
@@ -87,249 +83,249 @@ tools:context=".MainActivity">
                 android:fontFamily="@font/itim"
                 android:text="@string/the_list_of_things_you_should_do_this_week"
                 android:textSize="16sp" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="6sp"
                 android:layout_below="@+id/youShouldTxt"
-                android:background="@color/main_color"
                 android:layout_marginStart="27sp"
+                android:layout_marginTop="6sp"
                 android:layout_marginEnd="27sp"
-                />
+                android:background="@color/main_color" />
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="49sp"
-            android:layout_marginTop="12sp"
             android:layout_marginStart="27sp"
+            android:layout_marginTop="12sp"
             android:layout_marginEnd="27sp"
             android:paddingTop="10sp"
             android:paddingBottom="10sp"
 
             >
+
             <RelativeLayout
+                android:id="@+id/monday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:id="@+id/monday"
-                >
+                android:layout_centerVertical="true">
+
                 <TextView
                     android:id="@+id/mondaytext"
                     android:layout_width="50sp"
                     android:layout_height="19sp"
+                    android:layout_above="@id/underLineMonday"
                     android:layout_centerVertical="true"
-                    android:fontFamily="@font/itim"
                     android:layout_marginStart="2sp"
                     android:layout_marginEnd="2sp"
-                    android:textColor="@color/daysColor"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
+                    android:fontFamily="@font/itim"
                     android:text="@string/monday"
-                    android:layout_above="@id/underLineMonday"
-                    />
+                    android:textAlignment="center"
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp" />
+
                 <View
                     android:id="@+id/underLineMonday"
                     android:layout_width="25sp"
                     android:layout_height="4sp"
-                    android:background="@drawable/user_rounded_corner"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:visibility="visible"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    />
+                    android:background="@drawable/user_rounded_corner"
+                    android:visibility="visible" />
 
 
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/tuesday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_toRightOf="@+id/monday"
-                >
+                android:layout_toRightOf="@+id/monday">
+
                 <TextView
                     android:layout_width="50sp"
                     android:layout_height="19sp"
-                    android:fontFamily="@font/itim"
-                    android:textAlignment="center"
-                    android:textColor="@color/daysColor"
-                    android:textSize="16sp"
+                    android:layout_above="@id/underLineTuesday"
                     android:layout_centerVertical="true"
-                    android:text="@string/tuesday"
                     android:layout_marginStart="2sp"
                     android:layout_marginEnd="2sp"
-                    android:layout_above="@id/underLineTuesday"
-                    />
+                    android:fontFamily="@font/itim"
+                    android:text="@string/tuesday"
+                    android:textAlignment="center"
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp" />
+
                 <View
                     android:id="@+id/underLineTuesday"
                     android:layout_width="25sp"
                     android:layout_height="4sp"
-                    android:background="@drawable/user_rounded_corner"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    />
+                    android:background="@drawable/user_rounded_corner"
+                    android:visibility="gone" />
 
 
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/wednesday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/wednesday"
-                android:layout_toEndOf="@id/tuesday"
-                >
+                android:layout_toEndOf="@id/tuesday">
+
                 <TextView
                     android:id="@+id/wednesdayText"
                     android:layout_width="50sp"
                     android:layout_height="19sp"
-                    android:fontFamily="@font/itim"
+                    android:layout_above="@id/underLineWednesday"
+                    android:layout_centerVertical="true"
                     android:layout_marginStart="2sp"
                     android:layout_marginEnd="2sp"
-                    android:textColor="@color/daysColor"
-                    android:textSize="16sp"
+                    android:fontFamily="@font/itim"
+                    android:text="@string/wednesday"
                     android:textAlignment="center"
-                    android:layout_centerVertical="true"
-                    android:layout_above="@id/underLineWednesday"
-                    android:text="@string/wednesday" />
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp" />
+
                 <View
                     android:id="@+id/underLineWednesday"
                     android:layout_width="25sp"
                     android:layout_height="4sp"
-                    android:background="@drawable/user_rounded_corner"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    />
+                    android:background="@drawable/user_rounded_corner"
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/thursday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_toEndOf="@+id/wednesday"
-                android:id="@+id/thursday"
-                >
+                android:layout_toEndOf="@+id/wednesday">
 
                 <TextView
                     android:id="@+id/thursdayText"
                     android:layout_width="50sp"
                     android:layout_height="19sp"
-                    android:fontFamily="@font/itim"
-                    android:textColor="@color/daysColor"
-                    android:textSize="16sp"
+                    android:layout_above="@id/underLineThursday"
+                    android:layout_centerVertical="true"
                     android:layout_marginStart="2sp"
                     android:layout_marginEnd="2sp"
+                    android:fontFamily="@font/itim"
+                    android:text="@string/thursday"
                     android:textAlignment="center"
-                    android:layout_centerVertical="true"
-                    android:layout_above="@id/underLineThursday"
-                    android:text="@string/thursday" />
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp" />
+
                 <View
                     android:id="@+id/underLineThursday"
                     android:layout_width="25sp"
                     android:layout_height="4sp"
-                    android:background="@drawable/user_rounded_corner"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    />
+                    android:background="@drawable/user_rounded_corner"
+                    android:visibility="gone" />
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/friday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/friday"
-                android:layout_toRightOf="@id/thursday"
-                >
+                android:layout_toRightOf="@id/thursday">
+
                 <TextView
                     android:id="@+id/fridayText"
                     android:layout_width="50sp"
                     android:layout_height="19sp"
-                    android:fontFamily="@font/itim"
-                    android:textColor="@color/daysColor"
-                    android:textSize="16sp"
+                    android:layout_above="@id/underLineFriday"
+                    android:layout_centerVertical="true"
                     android:layout_marginStart="2sp"
                     android:layout_marginEnd="2sp"
+                    android:fontFamily="@font/itim"
+                    android:text="@string/friday"
                     android:textAlignment="center"
-                    android:layout_centerVertical="true"
-                    android:layout_above="@id/underLineFriday"
-                    android:text="@string/friday" />
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp" />
+
                 <View
                     android:id="@+id/underLineFriday"
                     android:layout_width="25sp"
                     android:layout_height="4sp"
-                    android:background="@drawable/user_rounded_corner"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    />
+                    android:background="@drawable/user_rounded_corner"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <RelativeLayout
+                android:id="@+id/saterday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_toRightOf="@+id/friday"
-                android:id="@+id/saterday"
-                >
+                android:layout_toRightOf="@+id/friday">
+
                 <TextView
                     android:id="@+id/saterdayText"
                     android:layout_width="50sp"
                     android:layout_height="19sp"
-                    android:fontFamily="@font/itim"
-                    android:textColor="@color/daysColor"
-                    android:textSize="16sp"
+                    android:layout_above="@id/underLineSaterday"
+                    android:layout_centerVertical="true"
                     android:layout_marginStart="2sp"
                     android:layout_marginEnd="2sp"
+                    android:fontFamily="@font/itim"
+                    android:text="@string/Saturday"
                     android:textAlignment="center"
-                    android:layout_centerVertical="true"
-                    android:layout_above="@id/underLineSaterday"
-                    android:text="@string/Saturday" />
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp" />
+
                 <View
                     android:id="@+id/underLineSaterday"
                     android:layout_width="25sp"
                     android:layout_height="4sp"
-                    android:background="@drawable/user_rounded_corner"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    />
+                    android:background="@drawable/user_rounded_corner"
+                    android:visibility="gone" />
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/sunday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_toRightOf="@+id/saterday"
-                android:id="@+id/sunday"
-                >
+                android:layout_toRightOf="@+id/saterday">
+
                 <TextView
                     android:id="@+id/sundayText"
                     android:layout_width="50sp"
                     android:layout_height="19sp"
-                    android:fontFamily="@font/itim"
-                    android:textColor="@color/daysColor"
-                    android:textSize="16sp"
+                    android:layout_above="@id/underLineSunday"
+                    android:layout_centerVertical="true"
                     android:layout_marginStart="2sp"
                     android:layout_marginEnd="2sp"
+                    android:fontFamily="@font/itim"
+                    android:text="@string/sunday"
                     android:textAlignment="center"
-                    android:layout_centerVertical="true"
-                    android:layout_above="@id/underLineSunday"
-                    android:text="@string/sunday" />
+                    android:textColor="@color/daysColor"
+                    android:textSize="16sp" />
+
                 <View
                     android:id="@+id/underLineSunday"
                     android:layout_width="25sp"
                     android:layout_height="4sp"
-                    android:background="@drawable/user_rounded_corner"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    />
+                    android:background="@drawable/user_rounded_corner"
+                    android:visibility="gone" />
             </RelativeLayout>
-
 
 
         </RelativeLayout>
@@ -340,24 +336,23 @@ tools:context=".MainActivity">
             android:layout_width="match_parent"
             android:layout_height="48sp"
             android:layout_marginStart="27sp"
-            android:layout_marginEnd="27sp"
-            android:paddingStart="10dp"
             android:layout_marginTop="12sp"
-            android:drawableEnd="@mipmap/search_icon1"
-            android:paddingEnd="10dp"
-            android:hint="search"
+            android:layout_marginEnd="27sp"
             android:background="@drawable/card_rounded_corner"
-            />
+            android:drawableEnd="@mipmap/search_icon1"
+            android:hint="search"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp" />
+
         <FrameLayout
+            android:id="@+id/main_frame_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/main_frame_layout"
-            android:layout_marginBottom="10sp"
-            android:layout_marginEnd="26sp"
             android:layout_marginStart="26sp"
-            android:layout_weight=".9"
             android:layout_marginTop="12sp"
-            />
+            android:layout_marginEnd="26sp"
+            android:layout_marginBottom="10sp"
+            android:layout_weight=".9" />
 
 
         <ImageButton
@@ -368,12 +363,12 @@ tools:context=".MainActivity">
             android:layout_marginEnd="27sp"
             android:layout_marginBottom="20sp"
             android:background="@drawable/floating_button_background"
-            android:src="@mipmap/plus_icon"/>
+            android:src="@mipmap/plus_icon" />
 
 
     </LinearLayout>
-<!-- Navigation drawer -->
-<com.google.android.material.navigation.NavigationView
+
+    <com.google.android.material.navigation.NavigationView
     android:id="@+id/nav_view"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"

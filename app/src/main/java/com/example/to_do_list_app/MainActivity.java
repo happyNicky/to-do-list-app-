@@ -40,8 +40,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.navigation.NavigationView;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private ImageButton burgerMenu;
@@ -62,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView userNameGreating;
     private static final int PICK_IMAGE = 1;
     private ShapeableImageView shapeableImageView;
-    private int theme=Color.WHITE;
+    public static int theme=Color.WHITE;
+    private  Calendar today=Calendar.getInstance();
 
     public static String getDay() {
         return day;
@@ -73,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
         SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         boolean hasOpenedBefore = preferences.getBoolean("hasOpenedBefore", false);
         if (!hasOpenedBefore) { // Redirect to IntroActivity if the app is being opened for the first time
@@ -85,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
         }
         db = new dataBase(getApplicationContext());
         userName=db.retunUserName();
+
+
 
         userNameGreating = findViewById(R.id.userNameGriting);
         userNameGreating.setText("Hi," + userName);
@@ -129,9 +136,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // trying code
-
-
         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, monFrag).commit();
 
         shapeableImageView.setOnClickListener(v -> {
@@ -152,6 +156,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, about_activity.class));
                     drawerLayout.closeDrawers();
                 } else if (R.id.rate == item.getItemId()) {
+                    String gitHubUrl="https://github.com/happyNicky/to-do-list-app-";
+                    Intent intent= new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(gitHubUrl));
+                    startActivity(intent);
                     drawerLayout.closeDrawers();
                 }
 
@@ -184,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
                 sundayView.setVisibility(View.GONE);
             }
             monFrag.updateTitles(titles);
+
             getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, monFrag).commit();
         });
         tuesday.setOnClickListener(v -> {
@@ -421,7 +430,6 @@ public class MainActivity extends AppCompatActivity {
         });
         popupMenu.show();
     }
-
 
 
 

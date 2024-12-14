@@ -100,7 +100,10 @@ public class addNote extends AppCompatActivity {
                             addNote.super.onBackPressed(); // Calling super onBackPressed correctly
                         }
                     })
-                    .setNegativeButton("No", null)
+                    .setNegativeButton("No", (dialog, which) -> {
+                         fromSaveButton=true;
+                         onBackPressed();
+                    })
                     .setIcon(R.drawable.about_icon)
                     .show();
         }

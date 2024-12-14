@@ -1,5 +1,7 @@
 package com.example.to_do_list_app;
 
+import static com.example.to_do_list_app.MainActivity.getDay;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -49,14 +51,15 @@ public class daysDataAdapter extends RecyclerView.Adapter<MyViewHolder> {
             holder.recyCard.setBackgroundColor(backgroundColor);
             holder.etTitle.setTextColor(Color.WHITE);
             GradientDrawable drawable = new GradientDrawable();
-             drawable.setCornerRadius(16); // Corner radius
-             drawable.setStroke(2, Color.parseColor("#656161"));
+             drawable.setCornerRadius(16);
+             drawable.setStroke(4, Color.parseColor("#656161"));
              holder.etTitle.setBackground(drawable);
         }
         else
         {   holder.etTitle.setBackgroundColor(backgroundColor);
             holder.recyRow.setBackgroundColor(backgroundColor);
             holder.recyCard.setBackgroundColor(backgroundColor);
+
             holder.etTitle.setTextColor(Color.BLACK);
         }
         holder.etTitle.setText(titles.get(position));
@@ -72,10 +75,11 @@ public class daysDataAdapter extends RecyclerView.Adapter<MyViewHolder> {
             return true;
         }
         else if(event.getRawX()<(holder.etTitle.getRight()-holder.etTitle.getCompoundDrawables()[2].getBounds().width()))
-        {   String details= db.titleDetails(holder.etTitle.getText().toString(),main.getDay());
+        {   String details= db.titleDetails(holder.etTitle.getText().toString(), getDay());
             Intent intent=new Intent(context,detailsSection.class);
             intent.putExtra("title",holder.etTitle.getText().toString());
             intent.putExtra("desicription",details);
+            intent.putExtra("theme",main.theme);
           v.getContext().startActivity(intent);
         }
         }
@@ -107,7 +111,7 @@ public class daysDataAdapter extends RecyclerView.Adapter<MyViewHolder> {
                 .setMessage("Are you sure you want to remove this task form your list?")
                 .setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                               db.setCompleted(titles.get(position),main.getDay());
+                               db.setCompleted(titles.get(position),getDay());
                                 removeTitle(position);
                         } }) .setNegativeButton("Cancel", null)
                 .setIcon(R.drawable.about_icon) .show();

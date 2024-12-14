@@ -184,7 +184,6 @@ public class dataBase extends SQLiteOpenHelper {
         String selectQuery = "SELECT * FROM " + USER_INFO;
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToPosition(0)) {
-
             int booleanColumnIndex = cursor.getColumnIndexOrThrow(IMAGE_IS_CHOOSEN);
             isSelectedImage = cursor.getInt(booleanColumnIndex) > 0;
         } cursor.close();
