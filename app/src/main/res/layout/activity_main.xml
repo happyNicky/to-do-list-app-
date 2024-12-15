@@ -64,7 +64,7 @@ tools:context=".MainActivity">
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/user_icon"
+                    android:src="@drawable/user_icon2"
                     app:shapeAppearanceOverlay="@style/roundedImageView" />
             </RelativeLayout>
         </RelativeLayout>

@@ -84,28 +84,34 @@ public class addNote extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        titleInputTxt=titleInput.getText().toString();
+        descriptionTxt=description.getText().toString();
         if (fromSaveButton) {
             super.onBackPressed();
         } else {
-            new AlertDialog.Builder(this)
-                    .setTitle("Confirmation Required")
-                    .setMessage("Do you want to save this title?")
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            titleInputTxt = titleInput.getText().toString();
-                            descriptionTxt = description.getText().toString();
-                            dm = new dataModelClass(titleInputTxt, false, day, descriptionTxt);
-                            db.addOne(dm);
+            if (titleInputTxt.isEmpty() && descriptionTxt.isEmpty()) {
+                super.onBackPressed();
+            } else {
+                new AlertDialog.Builder(this)
+                        .setTitle("Confirmation Required")
+                        .setMessage("Do you want to save this title?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                titleInputTxt = titleInput.getText().toString();
+                                descriptionTxt = description.getText().toString();
+                                dm = new dataModelClass(titleInputTxt, false, day, descriptionTxt);
+                                db.addOne(dm);
+                                fromSaveButton = true;
+                                addNote.super.onBackPressed(); // Calling super onBackPressed correctly
+                            }
+                        })
+                        .setNegativeButton("No", (dialog, which) -> {
                             fromSaveButton = true;
-                            addNote.super.onBackPressed(); // Calling super onBackPressed correctly
-                        }
-                    })
-                    .setNegativeButton("No", (dialog, which) -> {
-                         fromSaveButton=true;
-                         onBackPressed();
-                    })
-                    .setIcon(R.drawable.about_icon)
-                    .show();
+                            onBackPressed();
+                        })
+                        .setIcon(R.drawable.about_icon)
+                        .show();
+            }
         }
     }
 }
